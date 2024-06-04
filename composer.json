@@ -1,0 +1,18 @@
+{
+    "name": "himb0004/sae2-01",
+    "description": "Développement d'une application web",
+    "type": "project",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "Himb0004\\Sae201\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sacha Himber",
+            "email": "sacha.himber@etudiant.univ-reims.fr"
+        }
+    ],
+    "require": {}
+}
