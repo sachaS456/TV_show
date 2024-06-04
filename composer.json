@@ -5,7 +5,7 @@
     "license": "Copyleft",
     "autoload": {
         "psr-4": {
-            "Himb0004\\Sae201\\": "src/"
+            "": "src/"
         }
     },
     "authors": [
