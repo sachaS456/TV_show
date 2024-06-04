@@ -10,8 +10,12 @@
     },
     "authors": [
         {
-            "name": "Sacha Himber",
-            "email": "sacha.himber@etudiant.univ-reims.fr"
+            "name": ["Sacha Himber",
+		"Florian Valentin"
+		],
+            "email": ["sacha.himber@etudiant.univ-reims.fr",
+		"florian.valentin@etudiant.univ-reims.fr"
+		]
         }
     ],
     "require": {},
