@@ -21,3 +21,14 @@ try {
     http_response_code(404);
     exit();
 }
+
+$webPage = new AppWebpage("Séries TV :  {$stmt->getName()}");
+
+$webPage->appendContent("<div  class=\"list\">");
+foreach ($stmt->getSeasons() as $season) {
+    $seas = $webPage->escapeString($season->getName());
+    $posterId = $seas->getPosterId();
+    $webPage->appendContent("<div class =\"tvshow\"><div class =\"tvshow__poster\"><img src='./cover.php?coverId=$posterId'></div><div class = \"tvshow__title\">$seas</div></div>");
+}
+
+$webPage->appendContent("</div>");
