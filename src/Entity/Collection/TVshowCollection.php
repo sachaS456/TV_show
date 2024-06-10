@@ -22,7 +22,7 @@ class TVshowCollection
             <<<'SQL'
     SELECT *
     FROM tvshow
-    ORDER BY name
+    ORDER BY name;
 SQL
         );
         $req->execute();

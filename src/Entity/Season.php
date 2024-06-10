@@ -66,7 +66,7 @@ class Season
      *
      * @return array
      */
-    public function getEpisode() : array
+    public function getEpisode(): array
     {
         return Collection\EpisodeCollection::findBySeasonId($this->getId());
     }
