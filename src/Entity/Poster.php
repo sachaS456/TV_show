@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
+
 class Poster
 {
     private int $id;
@@ -18,5 +21,26 @@ class Poster
         return $this->jpeg;
     }
 
+    /** Find Poster by id.
+     *
+     * @param int $id: poster id
+     * @return Poster: poster
+     */
+    public function findById(int $id): Poster // EntityNotFoundException
+    {
+        $requete = MyPdo::getInstance()->prepare(<<<'SQL'
+SELECT id, jpeg
+FROM poster
+WHERE id = :Posterid;
+SQL);
 
+        $requete->execute([':Posterid' => $id]);
+
+        $res = $requete->fetchObject(Poster::class);
+
+        if ($res === false) {
+            throw new EntityNotFoundException("findById : $id doesn't exist ");
+        }
+        return $res;
+    }
 }
