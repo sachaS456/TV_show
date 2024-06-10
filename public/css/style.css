@@ -3,6 +3,13 @@ body{
     flex-direction: column;
     height: 100%;
     margin: 0;
+    background-color: rgb(20, 25, 30);
+    color: white;
+    max-width: 1200px;
+}
+
+header{
+
 }
 
 h1{
@@ -11,7 +18,7 @@ h1{
 
 html{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     height: 100%;
     width: 100%;
 }
@@ -21,22 +28,50 @@ ul.list{
     grid-template-columns: 1fr;
     overflow: scroll;
     height: 100%;
+    row-gap: 25px;
+    padding: 10px;
+    margin: 0;
 }
 
 .tvshow{
     display: flex;
-    border-style: dashed;
-    border-color: black;
-    border-width: 2px;
     border-radius: 20px;
 }
 
-.tvshow1{
-    flex-direction: column;
-    justify-content: flex-start;
+a.tvshow{
+    flex-direction: row-reverse;
+    padding: 25px;
+    box-shadow: black 0px 0px 10px;
+    transition: all 0.5s;
+    column-gap: 30px;
 }
 
-tvshow1{
-    flex-direction: column-reverse;
-    justify-content: space-around;
+a.tvshow:nth-child(2n) {
+    flex-direction: row;
+}
+
+a:hover{
+    box-shadow: white 0px 0px 10px;
+    text-shadow: white 0 0 15px;
+    transform: skew(3deg, 3deg);
+    transition: all 0.5s;
+}
+
+img{
+    border-radius: 15px;
+    box-shadow: black 0px 0px 10px;
+}
+
+a, .tvshow__title, .tvshow__description{
+    text-decoration: none;
+    font-style: normal;
+    font-stretch: normal;
+    font-family: "DejaVu Math TeX Gyre";
+    color: white;
+}
+
+footer{
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
 }
