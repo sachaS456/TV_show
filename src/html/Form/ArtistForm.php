@@ -1,12 +1,12 @@
 <?php
 
-namespace Html\Form;
+namespace html\Form;
 
 use Entity\Artist;
 use Exception\ParameterException;
-use Html\StringEscaper;
-use Html\Webpage;
-use Html\AppWebPage;
+use html\StringEscaper;
+use html\Webpage;
+use html\AppWebPage;
 
 class ArtistForm
 {

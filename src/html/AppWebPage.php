@@ -1,8 +1,8 @@
 <?php
 
-namespace Html;
+namespace html;
 
-use Html\WebPage;
+use html\WebPage;
 
 class AppWebPage extends WebPage
 {
