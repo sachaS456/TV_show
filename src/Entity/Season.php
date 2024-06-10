@@ -2,6 +2,8 @@
 
 namespace Entity;
 
+use Entity\Collection;
+
 class Season
 {
     private int $id;
@@ -58,6 +60,15 @@ class Season
     public function setPosterId(int $posterId): void
     {
         $this->posterId = $posterId;
+    }
+
+    /** Return episode of season.
+     *
+     * @return array
+     */
+    public function getEpisode() : array
+    {
+        return Collection\EpisodeCollection::findBySeasonId($this->getId());
     }
 
 }

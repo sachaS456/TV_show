@@ -1,6 +1,6 @@
 <?php
 
-namespace Html\Form;
+namespace html\Form;
 
 use Entity\Artist;
 use Exception\ParameterException;
