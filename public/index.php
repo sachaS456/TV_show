@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 use Html\AppWebPage;
-use Entity\Collection\ArtistCollection;
+use Entity\Collection\TVshowCollection;
 
 $indexPage = new AppWebPage('Série TV');
 
-$TVshowTab = Entity\Collection\ArtistCollection::findAll();
+$TVshowTab = Entity\Collection\TVshowCollection::findAll();
 
 $indexPage->appendContent(<<<HTML
 <ul class="list"> 
@@ -19,9 +19,10 @@ for ($i = 0; $i < count($TVshowTab); $i++)
     $title = $indexPage->escapeString($TVshowTab[$i]->getName());
     $description = $indexPage->escapeString($TVshowTab[$i]->getOverview());
     $coverId = $TVshowTab[$i]->getPosterId();
+    $tvshowClassCss = $i%2 == 0 ? 'tvshow1' : 'tvshow2';
 
     $indexPage->appendContent(<<<HTML
-        <a class="tvshow" href="./TVshow.php?TVshowId=$i">
+        <a class="tvshow $tvshowClassCss" href="./TVshow.php?TVshowId=$i">
             <div class="tvshow__text">
                 <h3 class="tvshow__title">$title</h3>
                 <h3 class="tvshow__description">$description</h3>
