@@ -11,9 +11,9 @@ class SeasonCollection
     /** Find seasons by TVshowId.
      *
      * @param int $tvShowId
-     * @return array|false: Seasons[]
+     * @return array: Seasons[]
      */
-    public static function findByTVshowId(int $tvShowId)
+    public static function findByTVshowId(int $tvShowId) : array
     {
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
