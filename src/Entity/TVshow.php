@@ -4,6 +4,7 @@ namespace Entity;
 
 use Database\MyPdo;
 use Entity\Collection\AlbumCollection;
+use Entity\Collection\SeasonCollection;
 use Entity\Exception\EntityNotFoundException;
 use PDO;
 
@@ -156,7 +157,16 @@ SQL
         if ($res === false) {
             throw new EntityNotFoundException("findById : $id non existant");
         }
-        return $res; //$eval[0];
+        return $res;
+    }
+
+    /**
+     * Seasons getter for a tvshow
+     * @return array
+     */
+    public function getSeasons(): array
+    {
+        return SeasonCollection::findByTVshowId($this->getId());
     }
 
 
