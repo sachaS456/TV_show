@@ -1,11 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Entity\Collection;
+
 use Database\MyPdo;
 use Entity\TVshow;
 
 use PDO;
+
 class TVshowCollection
 {
     /**
@@ -13,7 +16,7 @@ class TVshowCollection
      *
      * @return TVshow[]|false
      */
-    public static function findAll():array|false
+    public static function findAll(): array|false
     {
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
