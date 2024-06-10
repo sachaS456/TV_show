@@ -26,7 +26,7 @@ class Poster
      * @param int $id: poster id
      * @return Poster: poster
      */
-    public function findById(int $id): Poster // EntityNotFoundException
+    public static function findById(int $id): Poster // EntityNotFoundException
     {
         $requete = MyPdo::getInstance()->prepare(<<<'SQL'
 SELECT id, jpeg
