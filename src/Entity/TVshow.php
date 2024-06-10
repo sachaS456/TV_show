@@ -155,7 +155,7 @@ SQL
         $res = $req->fetchObject(TVshow::class);
 
         if ($res === false) {
-            throw new EntityNotFoundException("findById : $id non existant");
+            throw new EntityNotFoundException("findById : $id doesn't exist ");
         }
         return $res;
     }
