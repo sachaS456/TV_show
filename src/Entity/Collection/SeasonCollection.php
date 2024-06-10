@@ -8,7 +8,12 @@ use PDO;
 
 class SeasonCollection
 {
-    public static function findByTVshowId(int $id)
+    /** Find seasons by TVshowId.
+     *
+     * @param int $tvShowId
+     * @return array|false: Seasons[]
+     */
+    public static function findByTVshowId(int $tvShowId)
     {
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
@@ -18,7 +23,7 @@ class SeasonCollection
     ORDER BY name;
 SQL
         );
-        $req->execute([':tvshowid' => $id]);
+        $req->execute([':tvshowid' => $tvShowId]);
         return $req->fetchAll(PDO::FETCH_CLASS, Season::class);
     }
 
