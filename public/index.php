@@ -27,7 +27,7 @@ for ($i = 0; $i < count($TVshowTab); $i++) {
                 <h3 class="tvshow__description">$description</h3>
             </div>
             
-            <img class="tvshow__poster" src="poster.php?coverId=$coverId" alt="Image du poster de la série.">
+            <img class="tvshow__poster" src="poster.php?posterId=$coverId" alt="Image du poster de la série.">
         </a>
         HTML);
 }
