@@ -13,13 +13,12 @@ $indexPage->appendContent(<<<HTML
 <ul class="list"> 
 HTML);
 
-for ($i = 0; $i < count($TVshowTab); $i++)
-{
+for ($i = 0; $i < count($TVshowTab); $i++) {
     $id = $TVshowTab[$i]->getId();
     $title = $indexPage->escapeString($TVshowTab[$i]->getName());
     $description = $indexPage->escapeString($TVshowTab[$i]->getOverview());
     $coverId = $TVshowTab[$i]->getPosterId();
-    $tvshowClassCss = $i%2 == 0 ? 'tvshow1' : 'tvshow2';
+    $tvshowClassCss = $i % 2 == 0 ? 'tvshow1' : 'tvshow2';
 
     $indexPage->appendContent(<<<HTML
         <a class="tvshow $tvshowClassCss" href="./TVshow.php?TVshowId=$id">

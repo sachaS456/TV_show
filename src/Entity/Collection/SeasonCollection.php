@@ -13,7 +13,7 @@ class SeasonCollection
      * @param int $tvShowId
      * @return array: Seasons[]
      */
-    public static function findByTVshowId(int $tvShowId) : array
+    public static function findByTVshowId(int $tvShowId): array
     {
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
