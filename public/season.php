@@ -8,11 +8,11 @@ use Entity\Season;
 use Entity\TVshow;
 use Entity\Poster;
 
-if (!isset($_GET['TvshowId']) || !is_numeric($_GET['TvshowId'])) {
+if (!isset($_GET['TVshowId']) || !is_numeric($_GET['TVshowId'])) {
     header('Location: ./index.php');
     exit();
 } else {
-    $tvShowId = (int) $_GET['TvshowId'];
+    $tvShowId = (int) $_GET['TVshowId'];
 }
 
 try {
@@ -24,11 +24,17 @@ try {
 
 $webPage = new AppWebpage("Séries TV :  {$stmt->getName()}");
 
+
 $webPage->appendContent("<div  class=\"list\">");
+$posterTvShowId = $stmt->getPosterId();
+$webPage->appendContent("<div class=\"season\"><div class=\"tvshow__poster\"><img src='./poster.php?posterId=$posterTvShowId'></div><div class='tvshow__title'>{$stmt->getName()}</div><div class='tvshow__original'>{$stmt->getOriginalName()}</div><div class='tvshow__description'>{$stmt->getOverview()}</div></div>");
+
 foreach ($stmt->getSeasons() as $season) {
     $seas = $webPage->escapeString($season->getName());
     $posterId = $seas->getPosterId();
-    $webPage->appendContent("<div class =\"tvshow\"><div class =\"tvshow__poster\"><img src='./cover.php?coverId=$posterId'></div><div class = \"tvshow__title\">$seas</div></div>");
+    $webPage->appendContent("<div class =\"tvshow\"><div class =\"tvshow__poster\"><img src='./poster.php?posterId=$posterId'></div><div class = \"tvshow__title\">$seas</div></div>");
 }
 
 $webPage->appendContent("</div>");
+
+echo $webPage->toHTML();

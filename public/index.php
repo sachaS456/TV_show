@@ -21,7 +21,7 @@ for ($i = 0; $i < count($TVshowTab); $i++) {
     $tvshowClassCss = $i % 2 == 0 ? 'tvshow1' : 'tvshow2';
 
     $indexPage->appendContent(<<<HTML
-        <a class="tvshow $tvshowClassCss" href="./TVshow.php?TVshowId=$id">
+        <a class="tvshow $tvshowClassCss" href="./season.php?TVshowId=$id">
             <div class="tvshow__text">
                 <h3 class="tvshow__title">$title</h3>
                 <h3 class="tvshow__description">$description</h3>
