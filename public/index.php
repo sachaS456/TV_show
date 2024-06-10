@@ -36,3 +36,5 @@ for ($i = 0; $i < count($TVshowTab); $i++)
 $indexPage->appendContent(<<<HTML
 </ul>
 HTML);
+
+echo $indexPage->toHTML();

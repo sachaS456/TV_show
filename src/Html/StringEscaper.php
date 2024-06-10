@@ -1,6 +1,6 @@
 <?php
 
-namespace html;
+namespace Html;
 
 trait StringEscaper
 {
