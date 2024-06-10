@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Tests\Crud\Collection;
 
 use Tests\CrudTester;
@@ -13,9 +13,9 @@ class TVshowCollectionCest
         $expectedtvShows = [
             ['id' => 3, 'name' => 'Friends'],
             ['id' => 25, 'name' => 'Futurama'],
-            ['id' => 40, 'name' => 'La caravane de l\'étrange'],
             ['id' => 57, 'name' => 'Good Omens'],
             ['id' => 70, 'name' => 'Hunters'],
+            ['id' => 40, 'name' => 'La caravane de l\'étrange'],
         ];
 
         $tvshows = TVshowCollection::findAll();
