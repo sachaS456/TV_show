@@ -1,9 +1,9 @@
 <?php
 
-namespace html;
+namespace Html;
 
 use Cassandra\Date;
-use html\StringEscaper;
+use Html\StringEscaper;
 
 class WebPage
 {
