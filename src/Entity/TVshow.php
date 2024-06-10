@@ -143,8 +143,8 @@ class TVshow
     {
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
-    SELECT id, name, originalName, homepage, overview
-    FROM TVshow
+    SELECT id, name, originalName, homepage, overview, posterId
+    FROM tvshow
     WHERE id = :pid
 SQL
         );
