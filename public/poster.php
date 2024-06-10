@@ -7,7 +7,7 @@ use Entity\Poster;
 
 try{
     if (!isset($_GET['posterId']) || empty($_GET['posterId']) || !is_numeric($_GET['posterId'])) {
-        throw new ParameterException("parameter are not valid");
+        throw new ParameterException("parameter is not valid");
     }
 
     $img = Poster::findById((int)$_GET['posterId']);
