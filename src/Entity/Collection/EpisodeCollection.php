@@ -10,7 +10,7 @@ use PDO;
 class EpisodeCollection
 {
 
-    /** Find episode by seasonId.
+    /** Find episodes from a season (using seasonId).
      *
      * @param int $seasonId
      * @return array: Episode[]

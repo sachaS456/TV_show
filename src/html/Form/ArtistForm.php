@@ -4,9 +4,9 @@ namespace html\Form;
 
 use Entity\Artist;
 use Exception\ParameterException;
-use html\StringEscaper;
-use html\Webpage;
-use html\AppWebPage;
+use Html\StringEscaper;
+use Html\Webpage;
+use Html\AppWebPage;
 
 class ArtistForm
 {
