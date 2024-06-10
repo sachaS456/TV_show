@@ -139,12 +139,12 @@ class TVshow
      * @param int $id
      * @return TVshow
      */
-    public function findById(int $id): TVshow // EntityNotFoundException
+    public static function findById(int $id): TVshow // EntityNotFoundException
     {
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
-    SELECT id, name, originalName, homepage, overview
-    FROM TVshow
+    SELECT id, name, originalName, homepage, overview, posterId
+    FROM tvshow
     WHERE id = :pid
 SQL
         );
