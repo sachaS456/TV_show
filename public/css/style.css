@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+}
+
+html{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+ul.list{
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: scroll;
+    height: 100%;
+}
+
+.tvshow{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
