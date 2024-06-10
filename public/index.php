@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Html\AppWebPage;
+use html\AppWebPage;
 use Entity\Collection\TVshowCollection;
 
 $indexPage = new AppWebPage('Séries TV');
