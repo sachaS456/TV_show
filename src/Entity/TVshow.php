@@ -133,7 +133,31 @@ class TVshow
     }
 
 
+    /**
+     * TvShow by id Finder. Returns the tvShow links to the id which is given in settings
+     * @param int $id
+     * @return TVshow
+     */
+    public function findById(int $id): TVshow
+    {
+        $req = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+    SELECT id, name, originalName, homepage, overview
+    FROM TVshow
+    WHERE id = :pid
+SQL
+        );
+        $req->execute(['pid' => $id]);
 
+
+
+        $res = $req->fetchObject(TVshow::class);
+
+        if ($res === false) {
+            throw new EntityNotFoundException("findById : $id non existant");
+        }
+        return $res; //$eval[0];
+    }
 
 
 }
