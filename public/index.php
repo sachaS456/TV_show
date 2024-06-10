@@ -20,26 +20,16 @@ for ($i = 0; $i < count($TVshowTab); $i++)
     $description = $indexPage->escapeString($TVshowTab[$i]->getOverview());
     $coverId = $TVshowTab[$i]->getPosterId();
 
-    if ($i%2 == 0)
-    {
-        $indexPage->appendContent(<<<HTML
-        <a class="Serie" href="./TVshow.php?TVshowId=$i">
-            <img class="tvshow__poster" src="poster.php?coverId=$coverId" alt="Image du poster de la série.">
-            <h3 class="tvshow__title">$title</h3>
-            <h3 class="tvshow__description">$description</h3>
-        </a>
-        HTML);
-    }
-    else
-    {
-        $indexPage->appendContent(<<<HTML
-        <a class="Serie" href="./TVshow.php?TVshowId=$i">
-            <h3 class="tvshow__title">$title</h3>
-            <h3 class="tvshow__description">$description</h3>
+    $indexPage->appendContent(<<<HTML
+        <a class="tvshow" href="./TVshow.php?TVshowId=$i">
+            <div class="tvshow__text">
+                <h3 class="tvshow__title">$title</h3>
+                <h3 class="tvshow__description">$description</h3>
+            </div>
+            
             <img class="tvshow__poster" src="poster.php?coverId=$coverId" alt="Image du poster de la série.">
         </a>
         HTML);
-    }
 }
 
 $indexPage->appendContent(<<<HTML
