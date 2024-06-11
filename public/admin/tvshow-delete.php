@@ -7,7 +7,19 @@ use Exception\ParameterException;
 
 try {
 
+    if (!isset($_GET['TVshowId'])) {
+        throw new ParameterException('tvshow-delete.php : valeur du tvshow incorrecte');
 
+
+    } else {
+        if (!is_numeric($_GET['TVshowId'])) {
+            throw new ParameterException('tvshow-delete.php : valeur du tvshow incorrecte');
+        }
+        $TVshow = TVshow::findById((int)$_GET['TVshowId']);
+    }
+    $TVshow->delete();
+    header('Location: /index.php');
+    exit();
 
 } catch (ParameterException) {
     http_response_code(400);
