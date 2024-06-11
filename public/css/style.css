@@ -8,9 +8,10 @@ body{
     max-width: 1200px;
 }
 
-header{
-
+main{
+    overflow: scroll;
 }
+
 
 h1{
     text-align: center;
@@ -26,24 +27,23 @@ html{
 ul.list{
     display: grid;
     grid-template-columns: 1fr;
-    overflow: scroll;
-    height: 100%;
+    height: fit-content;
     row-gap: 25px;
     padding: 10px;
     margin: 0;
 }
 
-.tvshow{
-    display: flex;
-    border-radius: 20px;
-}
-
-a.tvshow{
+a{
     flex-direction: row-reverse;
     padding: 25px;
     box-shadow: black 0px 0px 10px;
     transition: all 0.5s;
     column-gap: 30px;
+    background-color: transparent;
+    display: flex;
+    border-radius: 20px;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 a.tvshow:nth-child(2n) {
@@ -57,9 +57,55 @@ a:hover{
     transition: all 0.5s;
 }
 
+a.season{
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+}
+
+article.season, article.season2{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    padding: 25px;
+    margin: 25px;
+    box-shadow: white 0 0 10px;
+}
+
+article.season2{
+    justify-content: space-between;
+}
+
+.season__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    row-gap: 10px;
+}
+
+.season__title, .season__original{
+    text-align: right;
+}
+
+.season2__title{
+    padding: 25px;
+    box-shadow: black 0 0 10px;
+    border-radius: 20px;
+}
+
+.season__description
+{
+    max-width: 70%;
+}
+
 img{
     border-radius: 15px;
     box-shadow: black 0px 0px 10px;
+}
+
+.season__poster{
+    box-shadow: white 0 0 5px;
+    border-radius: 15px;
 }
 
 a, .tvshow__title, .tvshow__description{
@@ -70,8 +116,109 @@ a, .tvshow__title, .tvshow__description{
     color: white;
 }
 
+button{
+    background-color: transparent;
+    border-width: 0;
+    color: white;
+    font-family: "DejaVu Math TeX Gyre";
+    font-style: normal;
+    font-size: 19px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+button:hover{
+    text-shadow: white 0 0 15px;
+    transform: scale(1.5);
+    transition: all 0.5s;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: linear-gradient(25deg, rgb(124, 4, 4), rgb(150, 92, 5));
+    margin: 20px;
+    box-shadow: black 0 0 5px;
+    border-radius: 10px;
+    column-gap: 30px;
+}
+
 footer{
     text-align: center;
     padding: 20px;
     margin-top: 10px;
+}
+
+.episode{
+    padding: 25px;
+    box-shadow: black 0 0 10px;
+    border-radius: 20px;
+}
+
+.season2__text{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.filter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.filter_genre{
+    background-color: transparent;
+    color: white;
+    margin: auto;
+    border-style: hidden;
+    box-shadow: black 0 0 10px;
+    padding: 20px;
+    font-style: normal;
+    font-size: 19px;
+    font-family: "DejaVu Math TeX Gyre";
+    border-radius: 10px;
+    transition: all 0.5s;
+    margin-bottom: 10px;
+}
+
+.filter_genre:hover {
+    box-shadow: white 0 0 10px;
+    transition: all 0.5s;
+}
+
+@media screen and (max-width: 600px){
+    .season2__text{
+        flex-direction: column;
+    }
+
+    .season__text{
+        flex-direction: column;
+    }
+
+    .season__text{
+        flex-direction: column;
+    }
+
+    .tvshow{
+        flex-direction: column;
+    }
+
+    article.season{
+        flex-direction: column;
+    }
+
+    button:hover{
+        text-shadow: white 0 0 15px;
+        transform: scale(1.2);
+        transition: all 0.5s;
+    }
+
+    a:hover{
+        box-shadow: white 0px 0px 10px;
+        text-shadow: white 0 0 15px;
+        transform: skew(0deg, 0deg);
+        transition: all 0.5s;
+    }
 }

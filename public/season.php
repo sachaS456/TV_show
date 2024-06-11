@@ -31,10 +31,21 @@ $webPage->addMenu('Modifier', "\"location.href='admin/tvshow-form.php?TVshowId={
 $webPage->addMenu('Supprimer', "\"location.href='admin/tvshow-delete.php?TVshowId={$stmt->getId()}'\"");
 $webPage->addMenu('Retour à l\'accueil', "location.href='/index.php'");
 
-$webPage->appendContent("<ul class=\"list\">");
 
 $posterTvShowId = $stmt->getPosterId();
-$webPage->appendContent("<div class=\"season\"><div class=\"season__poster\"><img src='./poster.php?posterId=$posterTvShowId'></div><div class='season__title'>{$stmt->getName()}</div><div class='season__original'>{$stmt->getOriginalName()}</div><div class='season__description'>{$stmt->getOverview()}</div></div>");
+$webPage->appendContent(<<<HTML
+<article class="season">
+    <img class="season__poster" src='./poster.php?posterId=$posterTvShowId'>
+    <article class="season__text">
+        <h3 class='season__title'>{$stmt->getName()}</h3>
+        <h4 class='season__original'>{$stmt->getOriginalName()}</h4>
+        <div class='season__description'>{$stmt->getOverview()}</div>
+    </article>
+</article>
+HTML);
+
+$webPage->appendContent("<div class=\"container\">");
+$webPage->appendContent("<ul class=\"list\">");
 
 foreach ($stmt->getSeasons() as $season) {
     $seas = $webPage->escapeString($season->getName());
@@ -43,6 +54,6 @@ foreach ($stmt->getSeasons() as $season) {
     $webPage->appendContent("<a href='./episode.php?seasonId=$seasonId' class =\"season\"><div class =\"season__poster\"><img src='./poster.php?posterId=$posterId'></div><div class = \"season__title\">$seas</div></a>");
 }
 
-$webPage->appendContent("</ul>");
+$webPage->appendContent("</ul></div>");
 
 echo $webPage->toHTML();

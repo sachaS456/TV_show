@@ -19,6 +19,7 @@ class GenreCollecion
             <<<'SQL'
             SELECT * 
             FROM genre
+            ORDER BY name;
 SQL
         );
         $req->execute();
