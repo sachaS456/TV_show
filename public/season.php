@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Entity\Exception\EntityNotFoundException;
@@ -28,6 +29,7 @@ $webPage = new AppWebpage("Séries TV :  {$stmt->getName()}");
 
 $webPage->addMenu('Modifier', "\"location.href='admin/tvshow-form.php?TVshowId={$stmt->getId()}'\"");
 $webPage->addMenu('Supprimer', "\"location.href='admin/tvshow-delete.php?TVshowId={$stmt->getId()}'\"");
+$webPage->addMenu('Retour à l\'accueil', "location.href='/index.php'");
 
 $webPage->appendContent("<ul class=\"list\">");
 

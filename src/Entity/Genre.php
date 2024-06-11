@@ -62,7 +62,7 @@ SQL
      * @param int $genreId
      * @return Genre
      */
-    public static function findById(int $genreId):Genre
+    public static function findById(int $genreId): Genre
     {
         $req = MyPdo::getInstance()->prepare(<<<'SQL'
 SELECT *
