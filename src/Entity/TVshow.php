@@ -15,7 +15,7 @@ class TVshow
     private string $originalName;
     private string $homepage;
     private string $overview;
-    private int $posterId;
+    private ?int $posterId;
 
     /**
      * Id getter
@@ -128,7 +128,7 @@ class TVshow
      * @param int $posterId
      * @return void
      */
-    public function setPosterId(?int $posterId=null): void
+    public function setPosterId(?int $posterId = null): void
     {
         $this->posterId = $posterId;
     }
@@ -215,7 +215,7 @@ SQL
      * @param int|null $id
      * @return TVshow
      */
-    public static function create(string $name, string $originalName, string $homepage, string $overview, ?int $posterId=null, ?int $id = null): TVshow
+    public static function create(string $name, string $originalName, string $homepage, string $overview, ?int $posterId = null, ?int $id = null): TVshow
     {
         $tv = new TVshow();
         $tv->setName($name);

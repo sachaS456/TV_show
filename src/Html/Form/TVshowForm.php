@@ -38,24 +38,29 @@ class TVshowForm
     <input name="id" type="hidden" maxlength="5" value="{$this->TVshow?->getId()}">
     <label>
     Name
+    </label>
     <input name="name" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getName())}" required>
-</label>
+
 <label>
     Original Name
-    <input name="name" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getOriginalName())}" required>
-</label>
+    </label>
+    <input name="originalName" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getOriginalName())}" required>
+
 <label>
     HomePage
-    <input name="name" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getHomepage())}" required>
-</label>
+    </label>
+    <input name="homepage" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getHomepage())}" required>
+
 <label>
     Overview
-    <input name="name" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getOverview())}" required>
-</label>
+    </label>
+    <input name="overview" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getOverview())}" required>
+
 <label>
     Poster Id
-    <input name="name" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getPosterId())}">
-</label>
+    </label>
+    <input name="posterId" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getPosterId())}">
+
     <label>
     <button type="submit">Enregistrer</button>
 </label>
@@ -72,16 +77,20 @@ HTML;
         }
 
         if (!isset($_POST['name']) || empty($_POST['name'])) {
+            echo"1";
             throw new ParameterException('setEntityFromQueryString : nom du tvShow incorrect');
         }
         if (!isset($_POST['originalName']) || empty($_POST['originalName'])) {
-            throw new ParameterException('setEntityFromQueryString : nom du tvShow incorrect');
+            throw new ParameterException('setEntityFromQueryString : originalName du tvShow incorrect');
+            echo"2";
         }
         if (!isset($_POST['homepage']) || empty($_POST['homepage'])) {
-            throw new ParameterException('setEntityFromQueryString : nom du tvShow incorrect');
+            throw new ParameterException('setEntityFromQueryString : homepage du tvShow incorrect');
+            echo"3";
         }
         if (!isset($_POST['overview']) || empty($_POST['overview'])) {
-            throw new ParameterException('setEntityFromQueryString : nom du tvShow incorrect');
+            echo"4";
+            throw new ParameterException('setEntityFromQueryString : overview du tvShow incorrect');
         }
 
 
