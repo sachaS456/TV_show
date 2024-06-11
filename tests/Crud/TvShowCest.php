@@ -35,4 +35,17 @@ class TvShowCest
         $I->assertNull($artist->getId());
         $I->assertSame('Friends', $artist->getName());
     }
+
+    public function update(CrudTester $I)
+    {
+        $tvShow = TVshow::findById(3);
+        $tvShow->setName('Nœud Coulant');
+        $tvShow->save();
+        $I->canSeeNumRecords(1, 'tvshow', [
+            'id' => 3,
+            'name' => 'Nœud Coulant'
+        ]);
+        $I->assertSame(3, $tvShow->getId());
+        $I->assertSame('Nœud Coulant', $tvShow->getName());
+    }
 }
