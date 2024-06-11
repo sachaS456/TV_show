@@ -64,11 +64,36 @@ a.season{
 
 article.season{
     display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    padding: 25px;
+    margin: 25px;
+    box-shadow: white 0 0 10px;
+}
+
+.season__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    row-gap: 10px;
+}
+
+.season__title, .season__original{
+    text-align: right;
+}
+
+.season__description
+{
+    max-width: 70%;
 }
 
 img{
     border-radius: 15px;
     box-shadow: black 0px 0px 10px;
+}
+
+.season__poster{
+    box-shadow: white 0 0 5px;
 }
 
 a, .tvshow__title, .tvshow__description{
@@ -95,11 +120,17 @@ button:hover{
     transition: all 0.5s;
 }
 
+a:active{
+}
+
 .menu{
     display: flex;
     justify-content: space-around;
     padding: 20px;
     background: linear-gradient(25deg, rgb(124, 4, 4), rgb(150, 92, 5));
+    margin: 20px;
+    box-shadow: black 0 0 5px;
+    border-radius: 10px;
 }
 
 footer{
