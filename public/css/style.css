@@ -187,3 +187,38 @@ footer{
     box-shadow: white 0 0 10px;
     transition: all 0.5s;
 }
+
+@media screen and (max-width: 600px){
+    .season2__text{
+        flex-direction: column;
+    }
+
+    .season__text{
+        flex-direction: column;
+    }
+
+    .season__text{
+        flex-direction: column;
+    }
+
+    .tvshow{
+        flex-direction: column;
+    }
+
+    article.season{
+        flex-direction: column;
+    }
+
+    button:hover{
+        text-shadow: white 0 0 15px;
+        transform: scale(1.2);
+        transition: all 0.5s;
+    }
+
+    a:hover{
+        box-shadow: white 0px 0px 10px;
+        text-shadow: white 0 0 15px;
+        transform: skew(0deg, 0deg);
+        transition: all 0.5s;
+    }
+}
