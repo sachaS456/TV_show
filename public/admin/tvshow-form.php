@@ -9,9 +9,7 @@ use Html\Form\TVshowForm;
 
 try{
     if (!isset($_GET['TVshowId'])) {
-        $artist = null;
-
-
+        $tvshow = null;
     } else {
         if (!is_numeric($_GET['TVshowId'])) {
             throw new ParameterException('tvshow-form.php : valeur du tvshow incorrecte');
