@@ -33,17 +33,15 @@ ul.list{
     margin: 0;
 }
 
-.tvshow{
-    display: flex;
-    border-radius: 20px;
-}
-
-a.tvshow{
+a{
     flex-direction: row-reverse;
     padding: 25px;
     box-shadow: black 0px 0px 10px;
     transition: all 0.5s;
     column-gap: 30px;
+    background-color: transparent;
+    display: flex;
+    border-radius: 20px;
 }
 
 a.tvshow:nth-child(2n) {
