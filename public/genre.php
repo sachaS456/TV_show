@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
+use Entity\Collection\GenreCollecion;
 use Entity\Exception\EntityNotFoundException;
 use Html\AppWebPage;
 use Entity\Genre;
 
+// Check paramaters
 if (!isset($_GET['genre']) || !is_numeric($_GET['genre'])) {
     header('Location: ./index.php');
     exit();
@@ -24,6 +26,17 @@ $indexPage = new AppWebpage("Séries TV, Genre : $genreName"); // nom à retouch
 
 $indexPage->addMenu('Retour à l\'accueil', "location.href='/index.php'");
 
+// Menu strip
+$genres = GenreCollecion::findAll();
+
+$indexPage->appendContent("<div class='filter'><select class='filter_genre' name=\"test_redirect\" onchange=\"location.assign('http://localhost:8000/genre.php?genre=' + this.options[this.selectedIndex].value)\">");
+$indexPage->appendContent("<option selected value=\"\">Trier par : </option>");
+foreach ($genres as $genre) {
+    $indexPage->appendContent("<option value=\"{$genre->getId()}\">{$genre->getName()}</option>");
+}
+$indexPage->appendContent("</select></div>");
+
+// TV show
 $indexPage->appendContent("<ul class=\"list\">");
 
 for ($i = 0; $i < count($TVshowTab); $i++) {
