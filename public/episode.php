@@ -59,7 +59,16 @@ $webPage->appendContent("<ul class=\"list\">");
 
 for ($i = 0; $i < count($EpisodeCollection); $i++) {
 
+    $epiName = $webPage->escapeString($EpisodeCollection[$i]->getName());
+    $epiDesc = $webPage->escapeString($EpisodeCollection[$i]->getOverview());
+    $epiNumb = $EpisodeCollection[$i]->getEpisodeNumber();
 
+    $webPage->appendContent(<<<HTML
+<li class="episode">
+    <h3>$epiNumb - $epiName</h3>
+    <p>$epiDesc</p>
+</li>
+HTML);
 }
 
 $webPage->appendContent("</ul>");
