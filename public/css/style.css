@@ -138,3 +138,9 @@ footer{
     padding: 20px;
     margin-top: 10px;
 }
+
+.episode{
+    padding: 25px;
+    box-shadow: black 0 0 10px;
+    border-radius: 20px;
+}
