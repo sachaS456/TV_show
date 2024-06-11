@@ -70,4 +70,23 @@ class TvShowCest
         $I->assertSame('Un noeud cool!', $tvShow->getOverview());
         $I->assertSame(10, $tvShow->getPosterId());
     }
+    public function insert(CrudTester $I)
+    {
+        $tvShow = TVshow::create('Nœud Coulant', 'Nœud Coulant', 'www.noeud.com', 'Un noeud cool!', 10000, 100);
+        $tvShow->save();
+        $I->canSeeNumRecords(0, 'tvshow', [
+            'id' => 100,
+            'name' => 'Nœud Coulant',
+            'originalName' =>'Nœud Coulant',
+            'homepage' => 'www.noeud.com',
+            'overview' =>'Un noeud cool!',
+            'posterId' => 10000
+        ]);
+        $I->assertSame($tvShow->getId(), 100);
+        $I->assertSame('Nœud Coulant', $tvShow->getName());
+        $I->assertSame('Nœud Coulant', $tvShow->getOriginalName());
+        $I->assertSame('www.noeud.com', $tvShow->getHomepage());
+        $I->assertSame('Un noeud cool!', $tvShow->getOverview());
+        $I->assertSame(10000, $tvShow->getPosterId());
+    }
 }
