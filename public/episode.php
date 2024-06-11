@@ -17,9 +17,10 @@ try{
         throw new ParameterException('parameter is not valid');
     }
     else{
-        $tvShowId = (int) $_GET['seasonId'];
+        $SeasonId = (int) $_GET['seasonId'];
 
-        // next code
+        $season = Season::findById($SeasonId);
+        $EpisodeCollection = $season->getEpisode();
     }
 }
 catch (ParameterException)
@@ -30,8 +31,37 @@ catch (ParameterException)
 catch (EntityNotFoundException)
 {
     http_response_code(404);
+    exit();
 }
 catch (Exception)
 {
     http_response_code(500);
+    exit();
 }
+
+$webPage = new AppWebpage("Séries TV :  {$season->getName()}");
+
+
+$posterSeasonId = $season->getPosterId();
+$webPage->appendContent(<<<HTML
+<div class=\"season\">
+    <div class=\"season__poster\">
+        <img src='./poster.php?posterId=$posterSeasonId'>
+    </div>
+    <div class='season__title'>{$season->getName()}</div>
+    <div class='season__original'>{$season->getName()}</div>
+</div>
+HTML
+
+);
+
+$webPage->appendContent("<ul class=\"list\">");
+
+for ($i = 0; $i < count($EpisodeCollection); $i++) {
+
+
+}
+
+$webPage->appendContent("</ul>");
+
+echo $webPage->toHTML();
