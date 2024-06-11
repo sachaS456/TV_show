@@ -18,8 +18,8 @@ try {
     http_response_code(404);
     exit();
 }
-
-$indexPage = new AppWebpage("Séries TV, Genre : $genre"); // nom à retoucher
+$genreName = Genre::findById($genre)->getName();
+$indexPage = new AppWebpage("Séries TV, Genre : $genreName"); // nom à retoucher
 
 $indexPage->appendContent("<a href='index.php'>Retour à l'accueil</a>");
 
