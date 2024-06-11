@@ -41,6 +41,8 @@ catch (Exception)
 
 $webPage = new AppWebpage("Séries TV :  {$season->getName()}");
 
+$webPage->addMenu('Retour à l\'accueil', "location.href='/index.php'");
+
 
 $posterSeasonId = $season->getPosterId();
 $show = TVshow::findById($season->getTvShowId());

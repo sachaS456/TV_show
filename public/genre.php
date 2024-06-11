@@ -22,7 +22,7 @@ try {
 $genreName = Genre::findById($genre)->getName();
 $indexPage = new AppWebpage("Séries TV, Genre : $genreName"); // nom à retoucher
 
-$indexPage->appendContent("<a href='index.php'>Retour à l'accueil</a>");
+$indexPage->addMenu('Retour à l\'accueil', "location.href='/index.php'");
 
 $indexPage->appendContent("<ul class=\"list\">");
 
