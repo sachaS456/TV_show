@@ -20,7 +20,7 @@ class GenreCollecion
 SQL
         );
         $req->execute();
-        return $req;
+        return $req->fetchAll(PDO::FETCH_CLASS,Genre::class);
     }
 
 
