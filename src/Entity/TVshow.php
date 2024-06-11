@@ -210,7 +210,7 @@ SQL
     }
 
     /**
-     * Method you use to create an artist in the Database
+     * Method you use to create a tvShow in the Database
      * @param string $name
      * @param int|null $id
      * @return TVshow
@@ -225,6 +225,20 @@ SQL
         $tv->setPosterId($posterId);
         $tv->setId($id);
         return $tv;
+    }
+
+    /**
+     * Method you use to save a tv show in the DataBase
+     * @return $this
+     */
+    public function save()
+    {
+        if ($this->id == null) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
+        return $this;
     }
 
 
