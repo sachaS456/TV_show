@@ -30,12 +30,12 @@ $webPage->addMenu('Supprimer', "location.href='admin/tvshow-delete.php?TVshowId=
 
 $webPage->appendContent("<ul class=\"list\">");
 
-$posterTvShowId = Poster::findById($stmt->getPosterId())->getId();
+$posterTvShowId = $stmt->getPosterId();
 $webPage->appendContent("<div class=\"season\"><div class=\"season__poster\"><img src='./poster.php?posterId=$posterTvShowId'></div><div class='season__title'>{$stmt->getName()}</div><div class='season__original'>{$stmt->getOriginalName()}</div><div class='season__description'>{$stmt->getOverview()}</div></div>");
 
 foreach ($stmt->getSeasons() as $season) {
     $seas = $webPage->escapeString($season->getName());
-    $posterId = Poster::findById($season->getPosterId())->getId();
+    $posterId = $season->getPosterId();
     $seasonId = $season->getId();
     $webPage->appendContent("<a href='./episode.php?seasonId=$seasonId' class =\"season\"><div class =\"season__poster\"><img src='./poster.php?posterId=$posterId'></div><div class = \"season__title\">$seas</div></a>");
 }
