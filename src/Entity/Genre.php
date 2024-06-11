@@ -64,6 +64,20 @@ SQL
      */
     public static function findById(int $genreId):Genre
     {
+        $req = MyPdo::getInstance()->prepare(<<<'SQL'
+SELECT *
+FROM genre
+WHERE id = :genreId;
+SQL);
 
+        $req->execute([':genreId' => $genreId]);
+
+        $res = $req->fetchObject(Genre::class);
+
+        if ($res === false) {
+            throw new EntityNotFoundException("findById : $genreId doesn't exist ");
+        }
+        return $res;
     }
+
 }
