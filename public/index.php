@@ -12,6 +12,7 @@ $indexPage->addMenu('Ajouter', "location.href='admin/tvshow-form.php'");
 
 $TVshowTab = TVshowCollection::findAll();
 
+// Menu strip
 $genres = GenreCollecion::findAll();
 
 $indexPage->appendContent("<div class='filter'><select class='filter_genre' name=\"test_redirect\" onchange=\"location.assign('http://localhost:8000/genre.php?genre=' + this.options[this.selectedIndex].value)\">");
@@ -21,7 +22,7 @@ foreach ($genres as $genre) {
 }
 $indexPage->appendContent("</select></div>");
 
-
+// TV show
 $indexPage->appendContent(<<<HTML
 <ul class="list"> 
 HTML);
