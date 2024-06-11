@@ -2,27 +2,29 @@
 
 declare(strict_types=1);
 
+use Entity\Exception\EntityNotFoundException;
 use Html\AppWebPage;
-use Entity\Collection\TVshowCollection;
-use Entity\Collection\GenreCollecion;
+use Entity\Genre;
 
-$indexPage = new AppWebPage('Séries TV');
-
-$indexPage->addMenu('Ajouter', "location.href='admin/tvshow-form.php'");
-
-$TVshowTab = TVshowCollection::findAll();
-
-$genres = GenreCollecion::findAll();
-$indexPage->appendContent("<select name=\"test_redirect\" onchange=\"location.assign('http://localhost:8000/genre.php?genre=' + this.options[this.selectedIndex].value)\">");
-foreach ($genres as $genre) {
-    $indexPage->appendContent("<option value=\"{$genre->getId()}\">{$genre->getName()}</option>");
+if (!isset($_GET['genre']) || !is_numeric($_GET['genre'])) {
+    header('Location: ./index.php');
+    exit();
+} else {
+    $genre = (int) $_GET['genre'];
 }
-$indexPage->appendContent("</select>");
 
+try {
+    $TVshowTab = Genre::findByGenre($genre);
+} catch (EntityNotFoundException) {
+    http_response_code(404);
+    exit();
+}
+$genreName = Genre::findById($genre)->getName();
+$indexPage = new AppWebpage("Séries TV, Genre : $genreName"); // nom à retoucher
 
-$indexPage->appendContent(<<<HTML
-<ul class="list"> 
-HTML);
+$indexPage->appendContent("<a href='index.php'>Retour à l'accueil</a>");
+
+$indexPage->appendContent("<ul class=\"list\">");
 
 for ($i = 0; $i < count($TVshowTab); $i++) {
     $id = $TVshowTab[$i]->getId();
