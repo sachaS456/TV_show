@@ -9,7 +9,7 @@ use Entity\Collection\EpisodeCollection;
 
 class EpisodeCollectionCest
 {
-    public function findByTvshowId(CrudTester $I)
+    public function findBySeasonId(CrudTester $I)
     {
         $expectedEpisodes = [
             [
