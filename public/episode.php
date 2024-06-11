@@ -43,13 +43,15 @@ $webPage = new AppWebpage("Séries TV :  {$season->getName()}");
 
 
 $posterSeasonId = $season->getPosterId();
+$show = TVshow::findById($season->getTvShowId());
+
 $webPage->appendContent(<<<HTML
 <div class=\"season\">
     <div class=\"season__poster\">
         <img src='./poster.php?posterId=$posterSeasonId'>
     </div>
     <div class='season__title'>{$season->getName()}</div>
-    <div class='season__original'>{$season->getName()}</div>
+    <div class='season__title_serie'>{$show->getName()}</div>
 </div>
 HTML
 
@@ -64,10 +66,10 @@ for ($i = 0; $i < count($EpisodeCollection); $i++) {
     $epiNumb = $EpisodeCollection[$i]->getEpisodeNumber();
 
     $webPage->appendContent(<<<HTML
-<li class="episode">
-    <h3>$epiNumb - $epiName</h3>
-    <p>$epiDesc</p>
-</li>
+<div class="episode">
+    <h3 class="episode__title"><span>$epiNumb</span> - $epiName</h3>
+    <p class="episode__description">$epiDesc</p>
+</div>
 HTML);
 }
 
