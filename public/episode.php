@@ -51,7 +51,7 @@ $webPage->appendContent(<<<HTML
         <img src='./poster.php?posterId=$posterSeasonId'>
     </div>
     <div class='season__title'>{$season->getName()}</div>
-    <div class='season__title_serie'>{$show->getName()}</div>
+    <a href="season.php?TVshowId={$show->getId()}" class='season__title_serie'>{$show->getName()}</a>
 </div>
 HTML
 
