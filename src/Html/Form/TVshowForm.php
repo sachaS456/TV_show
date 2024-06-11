@@ -29,5 +29,24 @@ class TVshowForm
 
 
 
+    public function getHtmlForm(string $url): string
+    {
+        return <<<HTML
+        
+<form name="form" method="post" action="$url">
+
+    <input name="id" type="hidden" maxlength="5" value="{$this->TVshow?->getId()}">
+    <label>
+    Nom
+    <input name="name" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getName())}" required>
+</label>
+    <label>
+    <button type="submit">Enregistrer</button>
+</label>
+</form>
+HTML;
+    }
+
+
 
 }
