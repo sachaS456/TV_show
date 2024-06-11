@@ -193,6 +193,10 @@ SQL
         return $this;
     }
 
+    /**
+     * Method you use to insert an artist in the database
+     * @return $this
+     */
     public function insert()
     {
         $stmt = myPdo::getInstance()->prepare(
