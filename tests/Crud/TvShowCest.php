@@ -48,4 +48,15 @@ class TvShowCest
         $I->assertSame(3, $tvShow->getId());
         $I->assertSame('Nœud Coulant', $tvShow->getName());
     }
+
+    public function createWithoutId(CrudTester $I)
+    {
+        $tvShow = TVshow::create('Nœud Coulant', 'Nœud Coulant', 'www.noeud.com', 'Un noeud cool!', 10);
+        $I->assertNull($tvShow->getId());
+        $I->assertSame('Nœud Coulant', $tvShow->getName());
+        $I->assertSame('Nœud Coulant', $tvShow->getOriginalName());
+        $I->assertSame('www.noeud.com', $tvShow->getHomepage());
+        $I->assertSame('Un noeud cool!', $tvShow->getOverview());
+        $I->assertSame(10, $tvShow->getPosterId());
+    }
 }
