@@ -11,18 +11,23 @@ try{
     }
 
     $img = Poster::findById((int)$_GET['posterId']);
-    header('content-type: jpeg');
+    header('Content-type: jpeg');
     echo $img->getJpeg();
 }
 catch (ParameterException)
 {
     http_response_code(400);
+    exit();
 }
 catch (EntityNotFoundException)
 {
-    http_response_code(404);
+    //http_response_code(404);
+    header('Content-type: png');
+    header('Location: ./img/default.png');
+    exit();
 }
 catch (Exception)
 {
     http_response_code(500);
+    exit();
 }
