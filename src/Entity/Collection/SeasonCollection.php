@@ -20,7 +20,7 @@ class SeasonCollection
     SELECT *
     FROM season
     WHERE tvShowId = :tvshowid
-    ORDER BY name;
+    ORDER BY id;
 SQL
         );
         $req->execute([':tvshowid' => $tvShowId]);
