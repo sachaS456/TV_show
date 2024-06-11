@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Entity\Exception\EntityNotFoundException;
@@ -23,9 +24,7 @@ $indexPage = new AppWebpage("Séries TV, Genre : $genreName"); // nom à retouch
 
 $indexPage->appendContent("<a href='index.php'>Retour à l'accueil</a>");
 
-$indexPage->appendContent(<<<HTML
-<ul class="list"> 
-HTML);
+$indexPage->appendContent("<ul class=\"list\">");
 
 for ($i = 0; $i < count($TVshowTab); $i++) {
     $id = $TVshowTab[$i]->getId();
