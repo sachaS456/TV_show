@@ -12,16 +12,17 @@ $indexPage->addMenu('Ajouter', "location.href='admin/tvshow-form.php'");
 
 $TVshowTab = TVshowCollection::findAll();
 
+// Menu strip
 $genres = GenreCollecion::findAll();
-$indexPage->appendContent("<div class=\"container\">");
 
 $indexPage->appendContent("<div class='filter'><select class='filter_genre' name=\"test_redirect\" onchange=\"location.assign('http://localhost:8000/genre.php?genre=' + this.options[this.selectedIndex].value)\">");
+$indexPage->appendContent("<option selected value=\"\">Trier par : </option>");
 foreach ($genres as $genre) {
     $indexPage->appendContent("<option value=\"{$genre->getId()}\">{$genre->getName()}</option>");
 }
 $indexPage->appendContent("</select></div>");
 
-
+// TV show
 $indexPage->appendContent(<<<HTML
 <ul class="list"> 
 HTML);
@@ -46,7 +47,7 @@ for ($i = 0; $i < count($TVshowTab); $i++) {
 }
 
 $indexPage->appendContent(<<<HTML
-</ul></div>
+</ul>
 HTML);
 
 echo $indexPage->toHTML();

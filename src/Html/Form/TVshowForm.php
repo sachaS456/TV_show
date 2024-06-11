@@ -36,29 +36,26 @@ class TVshowForm
 
     <input name="id" type="hidden" maxlength="5" value="{$this->TVshow?->getId()}">
     <label>
-    Name
+    Titre
     </label>
     <input name="name" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getName())}" required>
 
 <label>
-    Original Name
+    Titre original
     </label>
     <input name="originalName" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getOriginalName())}" required>
 
 <label>
-    HomePage
+    Page d'accueil
     </label>
     <input name="homepage" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getHomepage())}" required>
 
 <label>
-    Overview
+    Description
     </label>
     <input name="overview" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getOverview())}" required>
 
-<label>
-    Poster Id
-    </label>
-    <input name="posterId" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getPosterId())}">
+    <input name="posterId" type="hidden" maxlength="50" value="{$this->escapeString($this->TVshow?->getPosterId())}">
 
 
     <button type="submit">Enregistrer</button>

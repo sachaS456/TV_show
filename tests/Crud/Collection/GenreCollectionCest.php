@@ -6,6 +6,7 @@ use Entity\Genre;
 use Tests\CrudTester;
 use Entity\Season;
 use Entity\Collection\GenreCollecion;
+
 class GenreCollectionCest
 {
     public function findAll(CrudTester $I)

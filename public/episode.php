@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Entity\Exception\EntityNotFoundException;
@@ -11,12 +12,10 @@ use Entity\Episode;
 use Entity\Poster;
 use Exception\ParameterException;
 
-try{
-    if (!isset($_GET['seasonId']) || empty($_GET['seasonId']) || !is_numeric($_GET['seasonId']))
-    {
+try {
+    if (!isset($_GET['seasonId']) || empty($_GET['seasonId']) || !is_numeric($_GET['seasonId'])) {
         throw new ParameterException('parameter is not valid');
-    }
-    else{
+    } else {
         $SeasonId = (int) $_GET['seasonId'];
 
         $season = Season::findById($SeasonId);
@@ -43,7 +42,8 @@ $show = TVshow::findById($season->getTvShowId());
 
 $webPage->appendContent("<div class=\"container\">");
 
-$webPage->appendContent(<<<HTML
+$webPage->appendContent(
+    <<<HTML
 <article class="season2">
     <img class="season2__poster" src='./poster.php?posterId=$posterSeasonId'>
     <div class="season2__text">

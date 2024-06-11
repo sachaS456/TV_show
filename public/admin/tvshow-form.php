@@ -18,7 +18,7 @@ try {
         $tvshow = TVshow::findById((int)$_GET['TVshowId']);
     }
     $form = new TVshowForm($tvshow);
-    $html = new AppWebPage('Form', '', $form->getHtmlForm($url = 'tvshow-save.php'));
+    $html = new AppWebPage("Ajout - Modification d'une série", '', $form->getHtmlForm($url = 'tvshow-save.php'));
     $html->addMenu('Retour à l\'accueil', "location.href='/index.php'");
     $html->appendCssUrl("../css/style.css");
     $html->appendCssUrl("../css/styleForm.css");
