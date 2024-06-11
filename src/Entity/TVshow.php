@@ -169,5 +169,12 @@ SQL
         return SeasonCollection::findByTVshowId($this->getId());
     }
 
+    /**
+     * private constructor
+     */
+    private function __construct()
+    {
+    }
+
 
 }
