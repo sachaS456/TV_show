@@ -1,0 +1,33 @@
+main{
+    overflow: visible;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    box-shadow: black 0 0 10px;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+input{
+    padding: 10px;
+    font-size: 15px;
+    font-family: "DejaVu Math TeX Gyre";
+    background: linear-gradient(25deg, rgb(124, 4, 4), rgb(150, 92, 5));
+    border-style: hidden;
+    box-shadow: white 0 0 10px;
+    border-radius: 10px;
+    color: white;
+    transition: all 0.3s;
+}
+
+input:focus{
+    box-shadow: white 0 0 30px;
+    border-style: hidden;
+    border-color: transparent;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.3s;
+}

@@ -44,7 +44,7 @@ $webPage->appendContent(<<<HTML
 </article>
 HTML);
 
-
+$webPage->appendContent("<div class=\"container\">");
 $webPage->appendContent("<ul class=\"list\">");
 
 foreach ($stmt->getSeasons() as $season) {
@@ -54,6 +54,6 @@ foreach ($stmt->getSeasons() as $season) {
     $webPage->appendContent("<a href='./episode.php?seasonId=$seasonId' class =\"season\"><div class =\"season__poster\"><img src='./poster.php?posterId=$posterId'></div><div class = \"season__title\">$seas</div></a>");
 }
 
-$webPage->appendContent("</ul>");
+$webPage->appendContent("</ul></div>");
 
 echo $webPage->toHTML();

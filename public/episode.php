@@ -41,6 +41,8 @@ $webPage->addMenu('Retour à l\'accueil', "location.href='/index.php'");
 $posterSeasonId = $season->getPosterId();
 $show = TVshow::findById($season->getTvShowId());
 
+$webPage->appendContent("<div class=\"container\">");
+
 $webPage->appendContent(<<<HTML
 <article class="season2">
     <img class="season2__poster" src='./poster.php?posterId=$posterSeasonId'>
@@ -69,6 +71,6 @@ for ($i = 0; $i < count($EpisodeCollection); $i++) {
 HTML);
 }
 
-$webPage->appendContent("</ul>");
+$webPage->appendContent("</ul></div>");
 
 echo $webPage->toHTML();
