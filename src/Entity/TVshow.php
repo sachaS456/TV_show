@@ -209,6 +209,24 @@ SQL
         return $this;
     }
 
+    /**
+     * Method you use to create an artist in the Database
+     * @param string $name
+     * @param int|null $id
+     * @return TVshow
+     */
+    public static function create(string $name, string $originalName, string $homepage, string $overview, int $posterId, ?int $id = null): TVshow
+    {
+        $tv = new TVshow();
+        $tv->setName($name);
+        $tv->setOriginalName($originalName);
+        $tv->setHomepage($homepage);
+        $tv->setOverview($overview);
+        $tv->setPosterId($posterId);
+        $tv->setId($id);
+        return $tv;
+    }
+
 
 
 }
