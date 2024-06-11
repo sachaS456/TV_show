@@ -2,7 +2,9 @@
 
 namespace Entity;
 
+use Database\MyPdo;
 use Entity\Collection;
+use Entity\Exception\EntityNotFoundException;
 
 class Season
 {
@@ -69,6 +71,29 @@ class Season
     public function getEpisode(): array
     {
         return Collection\EpisodeCollection::findBySeasonId($this->getId());
+    }
+
+    /** Season by id Finder. Returns the Season links to the id which is given in settings
+     * @param int $id
+     * @return Season
+     */
+    public static function findById(int $id): Season // EntityNotFoundException
+    {
+        $req = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+    SELECT id, name, originalName, homepage, overview, posterId
+    FROM season
+    WHERE id = :seaonId
+SQL
+        );
+        $req->execute([':seaonId' => $id]);
+
+        $res = $req->fetchObject(Season::class);
+
+        if ($res === false) {
+            throw new EntityNotFoundException("findById : $id doesn't exist ");
+        }
+        return $res;
     }
 
 }
