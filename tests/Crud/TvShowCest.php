@@ -25,4 +25,14 @@ class TvShowCest
             TVshow::findById(PHP_INT_MAX);
         });
     }
+
+    public function delete(CrudTester $I): void
+    {
+        $artist = TVshow::findById(3);
+        $artist->delete();
+        $I->cantSeeInDatabase('tvshow', ['id' => 3]);
+        $I->cantSeeInDatabase('tvshow', ['name' => 'Friends']);
+        $I->assertNull($artist->getId());
+        $I->assertSame('Friends', $artist->getName());
+    }
 }
