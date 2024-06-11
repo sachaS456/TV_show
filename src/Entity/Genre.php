@@ -43,9 +43,8 @@ class Genre
             <<<'SQL'
             SELECT T.id, T.name, T.originalName, T.homepage, T.overview, T.posterId
             FROM tvshow T 
-                JOIN tvshow_genre TG ON TG.id = T.id
-                JOIN genre G ON G.id = TG.genreId
-            WHERE G.id = :gid
+                JOIN tvshow_genre TG ON TG.tvShowId = T.id
+            WHERE TG.genreId = :gid
             ORDER BY T.name;
 SQL
         );
