@@ -169,5 +169,78 @@ SQL
         return SeasonCollection::findByTVshowId($this->getId());
     }
 
+    /**
+     * private constructor
+     */
+    private function __construct()
+    {
+    }
+
+    /**
+     * Method used to update the artist with the id of current object in the database
+     * @return $this
+     */
+    public function update(): TVshow
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+        UPDATE tvshow
+        SET name = :name, originalName = :original, homepage = :home, overview = :over, posterId = :posterId
+        WHERE id = :id
+SQL
+        );
+        $stmt->execute(['id' => $this->getId(), 'name' => $this->getName(), 'original' => $this->getOriginalName(), 'home' => $this->homepage,'over' => $this->overview,'posterId' => $this->posterId]);
+        return $this;
+    }
+
+    /**
+     * Method you use to insert an artist in the database
+     * @return $this
+     */
+    public function insert()
+    {
+        $stmt = myPdo::getInstance()->prepare(
+            <<<'SQL'
+            INSERT INTO tvshow (id, name, originalName, homepage, overview, posterId) VALUES (:id,:name, :original, :home, :over, :posterId)
+SQL
+        );
+        $stmt->execute(['id' => $this->getId(), 'name' => $this->getName(), 'original' => $this->getOriginalName(), 'home' => $this->homepage,'over' => $this->overview,'posterId' => $this->posterId]);
+        $this->setId(MyPdo::getInstance()->lastInsertId());
+        return $this;
+    }
+
+    /**
+     * Method you use to create a tvShow in the Database
+     * @param string $name
+     * @param int|null $id
+     * @return TVshow
+     */
+    public static function create(string $name, string $originalName, string $homepage, string $overview, int $posterId, ?int $id = null): TVshow
+    {
+        $tv = new TVshow();
+        $tv->setName($name);
+        $tv->setOriginalName($originalName);
+        $tv->setHomepage($homepage);
+        $tv->setOverview($overview);
+        $tv->setPosterId($posterId);
+        $tv->setId($id);
+        return $tv;
+    }
+
+    /**
+     * Method you use to save a tv show in the DataBase
+     * @return $this
+     */
+    public function save()
+    {
+        if ($this->id == null) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
+        return $this;
+    }
+
+
 
 }
