@@ -16,7 +16,8 @@ try{
 }
 catch (ParameterException)
 {
-    http_response_code(400);
+    header('Content-type: png');
+    header('Location: ./img/default.png');
     exit();
 }
 catch (EntityNotFoundException)

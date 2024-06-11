@@ -7,7 +7,7 @@ use Entity\Collection\TVshowCollection;
 
 $indexPage = new AppWebPage('Séries TV');
 
-$indexPage->addMenu('Ajouter', "location.href='admin/artist-form.php'");
+$indexPage->addMenu('Ajouter', "location.href='admin/tvshow-form.php'");
 
 $TVshowTab = TVshowCollection::findAll();
 
