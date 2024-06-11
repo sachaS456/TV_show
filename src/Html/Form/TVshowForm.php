@@ -60,9 +60,8 @@ class TVshowForm
     </label>
     <input name="posterId" type="text" maxlength="50" value="{$this->escapeString($this->TVshow?->getPosterId())}">
 
-    <label>
+
     <button type="submit">Enregistrer</button>
-</label>
 </form>
 HTML;
     }
@@ -94,7 +93,7 @@ HTML;
         $homepage = $this->stripTagsAndTrim($_POST['homepage']);
         $overview = $this->stripTagsAndTrim($_POST['overview']);
 
-        $TVshow = TVshow::create($nom, $originalName, $homepage, $overview,null, $id);
+        $TVshow = TVshow::create($nom, $originalName, $homepage, $overview, null, $id);
         $this->TVshow = $TVshow;
     }
 
