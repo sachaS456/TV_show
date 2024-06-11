@@ -201,7 +201,7 @@ SQL
     {
         $stmt = myPdo::getInstance()->prepare(
             <<<'SQL'
-            INSERT INTO tvshow (name, originalName, homepage, overview, posterId) VALUES (:id,:name, :original, :home, :over, :posterId)
+            INSERT INTO tvshow (id, name, originalName, homepage, overview, posterId) VALUES (:id,:name, :original, :home, :over, :posterId)
 SQL
         );
         $stmt->execute(['id' => $this->getId(), 'name' => $this->getName(), 'original' => $this->getOriginalName(), 'home' => $this->homepage,'over' => $this->overview,'posterId' => $this->posterId]);
