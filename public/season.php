@@ -33,7 +33,19 @@ $webPage->addMenu('Retour à l\'accueil', "location.href='/index.php'");
 
 
 $posterTvShowId = $stmt->getPosterId();
-$webPage->appendContent("<article class=\"season\"><div class=\"season__poster\"><img src='./poster.php?posterId=$posterTvShowId'></div><div class='season__title'>{$stmt->getName()}</div><div class='season__original'>{$stmt->getOriginalName()}</div><div class='season__description'>{$stmt->getOverview()}</div></article>");
+$webPage->appendContent(<<<HTML
+<article class=\"season\">
+    <div class=\"season__poster\">
+        <img src='./poster.php?posterId=$posterTvShowId'>
+    </div>
+    <article class="season__text">
+        <div class='season__title'>{$stmt->getName()}</div>
+        <div class='season__original'>{$stmt->getOriginalName()}</div>
+        <div class='season__description'>{$stmt->getOverview()}</div>
+    </article>
+</article>"
+HTML);
+
 
 $webPage->appendContent("<ul class=\"list\">");
 
