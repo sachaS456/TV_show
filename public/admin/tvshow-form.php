@@ -16,7 +16,7 @@ try{
         }
         $artist = Artist::findById((int)$_GET['artistId']);
     }
-    $form = new \Html\Form\ArtistForm($artist);
+    $form = new \Html\Form\TVshowForm($artist);
     $html = new \Html\AppWebPage('Form', '', $form->getHtmlForm($url = 'artist-save.php'));
     echo $html->toHTML();
 } catch (ParameterException) {
