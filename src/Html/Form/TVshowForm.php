@@ -77,19 +77,15 @@ HTML;
         }
 
         if (!isset($_POST['name']) || empty($_POST['name'])) {
-            echo"1";
             throw new ParameterException('setEntityFromQueryString : nom du tvShow incorrect');
         }
         if (!isset($_POST['originalName']) || empty($_POST['originalName'])) {
             throw new ParameterException('setEntityFromQueryString : originalName du tvShow incorrect');
-            echo"2";
         }
         if (!isset($_POST['homepage']) || empty($_POST['homepage'])) {
             throw new ParameterException('setEntityFromQueryString : homepage du tvShow incorrect');
-            echo"3";
         }
         if (!isset($_POST['overview']) || empty($_POST['overview'])) {
-            echo"4";
             throw new ParameterException('setEntityFromQueryString : overview du tvShow incorrect');
         }
 
@@ -99,7 +95,7 @@ HTML;
         $homepage = $this->stripTagsAndTrim($_POST['homepage']);
         $overview = $this->stripTagsAndTrim($_POST['overview']);
 
-        $TVshow = TVshow::create($nom, $originalName, $homepage, $overview, $id);
+        $TVshow = TVshow::create($nom, $originalName, $homepage, $overview,null, $id);
         $this->TVshow = $TVshow;
     }
 
