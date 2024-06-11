@@ -120,6 +120,7 @@ button{
     border-width: 0;
     color: white;
     font-family: "DejaVu Math TeX Gyre";
+    font-style: normal;
     font-size: 19px;
     transition: all 0.5s;
     cursor: pointer;
@@ -158,4 +159,30 @@ footer{
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+}
+
+.filter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.filter_genre{
+    background-color: transparent;
+    color: white;
+    margin: auto;
+    border-style: hidden;
+    box-shadow: black 0 0 10px;
+    padding: 20px;
+    font-style: normal;
+    font-size: 19px;
+    font-family: "DejaVu Math TeX Gyre";
+    border-radius: 10px;
+    transition: all 0.5s;
+    margin-bottom: 10px;
+}
+
+.filter_genre:hover {
+    box-shadow: white 0 0 10px;
+    transition: all 0.5s;
 }
