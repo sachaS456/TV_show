@@ -241,6 +241,21 @@ SQL
         return $this;
     }
 
+    public function delete(): TVshow
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+DELETE FROM tvshow
+WHERE id = :idc;
+SQL
+        );
+        $stmt->execute([':idc' => $this->getId()]);
+        $this->setId(null);
+        return $this;
+    }
+
+
+
 
 
 }
