@@ -62,13 +62,17 @@ a.season{
     align-items: center;
 }
 
-article.season{
+article.season, article.season2{
     display: flex;
     flex-direction: row;
     column-gap: 20px;
     padding: 25px;
     margin: 25px;
     box-shadow: white 0 0 10px;
+}
+
+article.season2{
+    justify-content: space-between;
 }
 
 .season__text{
@@ -80,6 +84,12 @@ article.season{
 
 .season__title, .season__original{
     text-align: right;
+}
+
+.season2__title{
+    padding: 25px;
+    box-shadow: black 0 0 10px;
+    border-radius: 20px;
 }
 
 .season__description
@@ -143,4 +153,10 @@ footer{
     padding: 25px;
     box-shadow: black 0 0 10px;
     border-radius: 20px;
+}
+
+.season2__text{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 }
