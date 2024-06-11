@@ -43,9 +43,9 @@ $show = TVshow::findById($season->getTvShowId());
 
 $webPage->appendContent(<<<HTML
 <article class="season2">
-    <img class="season__poster" src='./poster.php?posterId=$posterSeasonId'>
+    <img class="season2__poster" src='./poster.php?posterId=$posterSeasonId'>
     <div class="season2__text">
-        <a href="season.php?TVshowId={$show->getId()}" class='season__title_serie'>{$show->getName()}</a>
+        <a href="season.php?TVshowId={$show->getId()}" class='season2__title_serie'>{$show->getName()}</a>
         <div class='season2__title'>{$season->getName()}</div>
     </div>
     
