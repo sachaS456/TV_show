@@ -2,7 +2,6 @@
 
 namespace Html\Form;
 
-use Entity\Artist;
 use Entity\TVshow;
 use Exception\ParameterException;
 use Html\StringEscaper;

@@ -32,7 +32,7 @@ class Genre
     }
 
     /**
-     * By Id Genre Finder
+     * Find the TV shows links to the genre you gave in parameter
      *
      * @param int $genreId
      * @return array
@@ -56,5 +56,14 @@ SQL
             throw new EntityNotFoundException("findById : $genreId doesn't exist ");
         }
         return $res;
+    }
+
+    /**
+     * @param int $genreId
+     * @return Genre
+     */
+    public static function findById(int $genreId):Genre
+    {
+
     }
 }

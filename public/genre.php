@@ -21,6 +21,8 @@ try {
 
 $indexPage = new AppWebpage("Séries TV, Genre : $genre"); // nom à retoucher
 
+$indexPage->appendContent("<a href='index.php'>Retour à l'accueil</a>");
+
 $indexPage->appendContent(<<<HTML
 <ul class="list"> 
 HTML);
