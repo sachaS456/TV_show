@@ -81,7 +81,7 @@ class Season
     {
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
-    SELECT id, name, originalName, homepage, overview, posterId
+    SELECT *
     FROM season
     WHERE id = :seaonId
 SQL
