@@ -2,11 +2,11 @@
 
 namespace Crud\Collection;
 
-
 use Entity\Episode;
 use Tests\CrudTester;
 use Entity\Season;
 use Entity\Collection\EpisodeCollection;
+
 class EpisodeCollectionCest
 {
     public function findByTvshowId(CrudTester $I)
