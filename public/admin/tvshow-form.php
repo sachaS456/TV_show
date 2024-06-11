@@ -4,20 +4,22 @@ declare(strict_types=1);
 use Entity\TVshow;
 use Entity\Exception\EntityNotFoundException;
 use Exception\ParameterException;
+use Html\AppWebPage;
+use Html\Form\TVshowForm;
 
 try{
-    if (!isset($_GET['artistId'])) {
+    if (!isset($_GET['TVshowId'])) {
         $artist = null;
 
 
     } else {
-        if (!is_numeric($_GET['artistId'])) {
-            throw new ParameterException('artist-form.php : valeur de l\'artiste incorrecte');
+        if (!is_numeric($_GET['TVshowId'])) {
+            throw new ParameterException('tvshow-form.php : valeur du tvshow incorrecte');
         }
-        $artist = Artist::findById((int)$_GET['artistId']);
+        $tvshow = TVshow::findById((int)$_GET['TVshowId']);
     }
-    $form = new \Html\Form\TVshowForm($artist);
-    $html = new \Html\AppWebPage('Form', '', $form->getHtmlForm($url = 'artist-save.php'));
+    $form = new TVshowForm($tvshow);
+    $html = new AppWebPage('Form', '', $form->getHtmlForm($url = 'tvshow-save.php'));
     echo $html->toHTML();
 } catch (ParameterException) {
 http_response_code(400);
