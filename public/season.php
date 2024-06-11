@@ -26,8 +26,8 @@ try {
 
 $webPage = new AppWebpage("Séries TV :  {$stmt->getName()}");
 
-$webPage->addMenu('Modifier', "location.href='admin/tvshow-form.php?TVshowId={$stmt->getId()}'");
-$webPage->addMenu('Supprimer', "location.href='admin/tvshow-delete.php?TVshowId={$stmt->getId()}'");
+$webPage->addMenu('Modifier', "\"location.href='admin/tvshow-form.php?TVshowId={$stmt->getId()}'\"");
+$webPage->addMenu('Supprimer', "\"location.href='admin/tvshow-delete.php?TVshowId={$stmt->getId()}'\"");
 
 $genres = GenreCollecion::findAll();
 $webPage->appendContent("<select name=\"test_redirect\" onchange=\"location.assign('http://localhost/shop?genre=' + this.options[this.selectedIndex].value)\">");
