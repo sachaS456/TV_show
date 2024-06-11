@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Entity\Exception\EntityNotFoundException;
@@ -11,30 +12,22 @@ use Entity\Episode;
 use Entity\Poster;
 use Exception\ParameterException;
 
-try{
-    if (!isset($_GET['seasonId']) || empty($_GET['seasonId']) || !is_numeric($_GET['seasonId']))
-    {
+try {
+    if (!isset($_GET['seasonId']) || empty($_GET['seasonId']) || !is_numeric($_GET['seasonId'])) {
         throw new ParameterException('parameter is not valid');
-    }
-    else{
+    } else {
         $SeasonId = (int) $_GET['seasonId'];
 
         $season = Season::findById($SeasonId);
         $EpisodeCollection = $season->getEpisode();
     }
-}
-catch (ParameterException)
-{
+} catch (ParameterException) {
     header('Location: ./index.php');
     exit();
-}
-catch (EntityNotFoundException)
-{
+} catch (EntityNotFoundException) {
     http_response_code(404);
     exit();
-}
-catch (Exception)
-{
+} catch (Exception) {
     http_response_code(500);
     exit();
 }
@@ -47,7 +40,8 @@ $webPage->addMenu('Retour à l\'accueil', "location.href='/index.php'");
 $posterSeasonId = $season->getPosterId();
 $show = TVshow::findById($season->getTvShowId());
 
-$webPage->appendContent(<<<HTML
+$webPage->appendContent(
+    <<<HTML
 <div class=\"season\">
     <div class=\"season__poster\">
         <img src='./poster.php?posterId=$posterSeasonId'>
@@ -56,7 +50,6 @@ $webPage->appendContent(<<<HTML
     <a href="season.php?TVshowId={$show->getId()}" class='season__title_serie'>{$show->getName()}</a>
 </div>
 HTML
-
 );
 
 $webPage->appendContent("<ul class=\"list\">");
