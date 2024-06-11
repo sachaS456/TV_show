@@ -25,6 +25,8 @@ try {
 
 $webPage = new AppWebpage("Séries TV :  {$stmt->getName()}");
 
+$webPage->addMenu('Modifier', "location.href='admin/tvshow-form.php?TVshowId={$stmt->getId()}'");
+$webPage->addMenu('Supprimer', "location.href='admin/tvshow-delete.php?TVshowId={$stmt->getId()}'");
 
 $webPage->appendContent("<ul class=\"list\">");
 
