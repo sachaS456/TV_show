@@ -20,7 +20,7 @@ class EpisodeCollection
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
     SELECT *
-    FROM season
+    FROM episode
     WHERE id = :seasonId
     ORDER BY name;
 SQL
