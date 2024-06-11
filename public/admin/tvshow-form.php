@@ -18,6 +18,7 @@ try{
     }
     $form = new TVshowForm($tvshow);
     $html = new AppWebPage('Form', '', $form->getHtmlForm($url = 'tvshow-save.php'));
+    $html->appendCssUrl("../css/style.css");
     echo $html->toHTML();
 } catch (ParameterException) {
 http_response_code(400);

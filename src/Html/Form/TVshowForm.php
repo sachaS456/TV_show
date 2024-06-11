@@ -19,7 +19,7 @@ class TVshowForm
      */
     public function __construct(?TVshow $TVshow = null)
     {
-        $this->$TVshow = $TVshow;
+        $this->TVshow = $TVshow;
     }
 
     public function getTVshow(): ?TVshow
