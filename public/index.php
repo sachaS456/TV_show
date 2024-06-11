@@ -13,7 +13,7 @@ $indexPage->addMenu('Ajouter', "location.href='admin/tvshow-form.php'");
 $TVshowTab = TVshowCollection::findAll();
 
 $genres = GenreCollecion::findAll();
-$indexPage->appendContent("<select name=\"test_redirect\" onchange=\"location.assign('http://localhost/shop?genre=' + this.options[this.selectedIndex].value)\">");
+$indexPage->appendContent("<select name=\"test_redirect\" onchange=\"location.assign('http://localhost:8000/genre.php?genre=' + this.options[this.selectedIndex].value)\">");
 foreach ($genres as $genre) {
     $indexPage->appendContent("<option value=\"{$genre->getId()}\">{$genre->getName()}</option>");
 }

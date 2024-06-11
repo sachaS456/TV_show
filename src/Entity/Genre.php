@@ -4,6 +4,7 @@ namespace Entity;
 
 use Database\MyPdo;
 use Entity\Exception\EntityNotFoundException;
+use PDO;
 
 class Genre
 {
@@ -40,16 +41,16 @@ class Genre
     {
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
-            SELECT T.id, T.name, T.originalName, T.homepage, T.overview, t.posterId
+            SELECT T.id, T.name, T.originalName, T.homepage, T.overview, T.posterId
             FROM tvshow T 
                 JOIN tvshow_genre TG ON TG.id = T.id
-                JOIN GENRE G ON G.id = TG.genreId
+                JOIN genre G ON G.id = TG.genreId
             WHERE G.id = :gid
             ORDER BY T.name;
 SQL
         );
         $req->execute(['gid' => $genreId]);
-        $res = $req->fetchObject(Genre::class);
+        $res = $req->fetchAll(PDO::FETCH_CLASS, TVshow::class);
 
         if ($res === false) {
             throw new EntityNotFoundException("findById : $genreId doesn't exist ");
