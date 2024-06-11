@@ -20,12 +20,12 @@ class EpisodeCollection
         $req = MyPdo::getInstance()->prepare(
             <<<'SQL'
     SELECT *
-    FROM season
-    WHERE seasonId = :seasonId
-    ORDER BY name;
+    FROM episode
+    WHERE seasonid = :seasonId
+    ORDER BY episodeNumber;
 SQL
         );
-        $req->execute([':tvshowid' => $seasonId]);
+        $req->execute([':seasonId' => $seasonId]);
         return $req->fetchAll(PDO::FETCH_CLASS, Episode::class);
     }
 }
