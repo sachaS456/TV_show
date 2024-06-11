@@ -176,5 +176,22 @@ SQL
     {
     }
 
+    /**
+     * Method used to update the artist with the id of current object in the database
+     * @return $this
+     */
+    public function update(): TVshow
+    {
+        $stmt = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+        UPDATE tvshow
+        SET name = :name, originalName = :original, homepage = :home, overview = :over, posterId = :posterId
+        WHERE id = :id
+SQL
+        );
+        $stmt->execute(['id' => $this->getId(), 'name' => $this->getName(), 'original'=>$this->getOriginalName(), 'home'=>$this->homepage,'over'=>$this->overview,'posterId'=>$this->posterId]);
+        return $this;
+    }
+
 
 }
