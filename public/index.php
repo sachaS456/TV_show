@@ -4,12 +4,22 @@ declare(strict_types=1);
 
 use Html\AppWebPage;
 use Entity\Collection\TVshowCollection;
+use Entity\Collection\GenreCollecion;
+
 
 $indexPage = new AppWebPage('Séries TV');
 
 $indexPage->addMenu('Ajouter', "location.href='admin/tvshow-form.php'");
 
 $TVshowTab = TVshowCollection::findAll();
+
+$genres = GenreCollecion::findAll();
+$indexPage->appendContent("<select name=\"test_redirect\" onchange=\"location.assign('http://localhost/shop?genre=' + this.options[this.selectedIndex].value)\">");
+foreach ($genres as $genre){
+    $indexPage->appendContent("<option value=\"{$genre->getId()}\">{$genre->getName()}</option>");
+}
+$indexPage->appendContent("</select>");
+
 
 $indexPage->appendContent(<<<HTML
 <ul class="list"> 
