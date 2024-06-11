@@ -21,11 +21,11 @@ class EpisodeCollection
             <<<'SQL'
     SELECT *
     FROM season
-    WHERE seasonId = :seasonId
+    WHERE id = :seasonId
     ORDER BY name;
 SQL
         );
-        $req->execute([':tvshowid' => $seasonId]);
+        $req->execute([':seasonId' => $seasonId]);
         return $req->fetchAll(PDO::FETCH_CLASS, Episode::class);
     }
 }
