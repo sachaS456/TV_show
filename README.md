@@ -57,7 +57,7 @@ Cette base est requise pour effectuer les tests de Browse.
 
 ## Architecture du dépôt
 
-**Bin**: Contient les fichiers de commandes qui permet d'effectuer le lancement du serveur local.
-**public**: Contient les fichiers qui permettent l'affichage du site web.
-**src**: Contient les fichiers qui permettent d'effectuer les interactions de la base.
-**tests**: Contient les fichiers de jeux de tests.
+**Bin**: Contient les fichiers de commandes qui permet d'effectuer le lancement du serveur local.  
+**public**: Contient les fichiers qui permettent l'affichage du site web.  
+**src**: Contient les fichiers qui permettent d'effectuer les interactions de la base.  
+**tests**: Contient les fichiers de jeux de tests.  
