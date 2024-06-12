@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Browse;
@@ -48,5 +49,17 @@ class TVshowCest
     {
         $I->amOnPage('/season.php?TVshowId=100000000000000000');
         $I->seeResponseCodeIs(404);
+    }
+
+    public function loadSeasonWithCorrectParameter(BrowseTester $I)
+    {
+        $I->amOnPage('/season.php?TVshowId=57');
+        $I->seeResponseCodeIs(200);
+        $I->seeInTitle('Good Omens', '.header h1');
+        $I->see('Good Omens', '.header h1');
+        $I->assertEquals([
+            'Saison 1',
+            'Saison 2'
+        ], $I->grabMultiple('.content .list .season .season__title'));
     }
 }
