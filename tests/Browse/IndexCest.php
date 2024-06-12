@@ -37,4 +37,12 @@ class IndexCest
         // Check if strings are escaped
         $I->seeInSource('le 31 décembre 1999 alors qu&apos;il livrait une pizza,');
     }
+
+    public function clickOnArtistLink(BrowseTester $I)
+    {
+        $I->amOnPage('/');
+        $I->seeResponseCodeIs(200);
+        $I->click('Friends');
+        $I->seeInCurrentUrl('/season.php?TVshowId=3');
+    }
 }
