@@ -7,14 +7,14 @@ use Tests\BrowseTester;
 
 class PosterCest
 {
-    public function loadCoverWithoutParameter(BrowseTester $I)
+    public function loadPosterWithoutParameter(BrowseTester $I)
     {
         $I->amOnPage('/poster.php');
         $I->seeInCurrentUrl('/img/default.png');
     }
 
 
-    public function loadCoverWithWrongParameter(BrowseTester $I)
+    public function loadPosterWithWrongParameter(BrowseTester $I)
     {
         $I->amOnPage('/poster.php?posterId=324923949243932');
         $I->seeInCurrentUrl('/img/default.png');
@@ -29,7 +29,7 @@ class PosterCest
         ];
     }
 
-    public function loadCoverWithCorrectParameter(BrowseTester $I)
+    public function loadPosterWithCorrectParameter(BrowseTester $I)
     {
         $I->amOnPage('/poster.php?posterId=15');
         $I->seeResponseCodeIs(200);

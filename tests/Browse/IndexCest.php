@@ -18,7 +18,7 @@ class IndexCest
         $I->seeElement('.footer');
     }
 
-    public function listAllArtists(BrowseTester $I)
+    public function listAllTvShow(BrowseTester $I)
     {
         $I->amOnPage('/');
         $I->seeResponseCodeIs(200);
@@ -38,7 +38,7 @@ class IndexCest
         $I->seeInSource('le 31 décembre 1999 alors qu&apos;il livrait une pizza,');
     }
 
-    public function clickOnArtistLink(BrowseTester $I)
+    public function clickOnTvShowLink(BrowseTester $I)
     {
         $I->amOnPage('/');
         $I->seeResponseCodeIs(200);
