@@ -89,4 +89,22 @@ class TVShowEditCest
         $I->seeInCurrentUrl('/admin/tvshow-save.php');
         $I->seeResponseCodeIs(302);
     }
+
+    /**
+     * @depends loadExistingTvShowFormPage
+     */
+    public function updateTvShowWithMissingName(BrowseTester $I)
+    {
+        $I->amOnPage('/admin/tvshow-form.php?artistId=3');
+        $I->submitForm('form', [
+            'id' => '1230000',
+            'name' => '',
+            'originalName' => 'NVSERIE',
+            'homepage' => 'www.COOL.com',
+            'posterId' => '2340042303424230',
+            'overview' => 'Une série vachement cool'
+        ]);
+        $I->seeInCurrentUrl('/admin/tvshow-save.php');
+        $I->seeResponseCodeIs(400);
+    }
 }
