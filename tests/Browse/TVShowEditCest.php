@@ -7,7 +7,7 @@ use Tests\BrowseTester;
 
 class TVShowEditCest
 {
-    public function loadNewTVShowFormPage(BrowseTester $I)
+    public function loadNewTvShowFormPage(BrowseTester $I)
     {
         $I->amOnPage('/admin/tvshow-form.php');
         $I->seeResponseCodeIs(200);
@@ -21,7 +21,7 @@ class TVShowEditCest
         ]);
     }
 
-    public function loadExistingTVShowFormPage(BrowseTester $I)
+    public function loadExistingTvShowFormPage(BrowseTester $I)
     {
         $I->amOnPage('/admin/tvshow-form.php?TVshowId=3');
         $I->seeResponseCodeIs(200);
@@ -35,17 +35,34 @@ class TVShowEditCest
         ]);
     }
 
-    public function loadTVshowFormWithUnknownTVshowId(BrowseTester $I)
+    public function loadTvshowFormWithUnknownTvshowId(BrowseTester $I)
     {
         $I->amOnPage('/admin/tvshow-form.php?TVshowId='.PHP_INT_MAX);
         $I->seeResponseCodeIs(404);
     }
 
 
-    public function loadTVshowFormWithWrongParameter(BrowseTester $I)
+    public function loadTvshowFormWithWrongParameter(BrowseTester $I)
     {
         $I->amOnPage('/admin/tvshow-form.php?TVshowId=');
         $I->seeResponseCodeIs(400);
     }
+
+    public function insertTvshow(BrowseTester $I)
+    {
+        $I->stopFollowingRedirects();
+        $I->amOnPage('/admin/tvshow-form.php');
+        $I->submitForm('form', [
+            'id' => '1230000',
+            'name' => 'NVSERIE',
+            'originalName' => 'NVSERIE',
+            'homepage' => 'www.COOL.com',
+            'posterId' => '2340042303424230',
+            'overview' => 'Une série vachement cool'
+        ]);
+        $I->seeInCurrentUrl('/admin/tvshow-save.php');
+        $I->seeResponseCodeIs(302);
+    }
+
 
 }
