@@ -17,4 +17,24 @@ class IndexCest
         $I->seeElement('.content');
         $I->seeElement('.footer');
     }
+
+    public function listAllArtists(BrowseTester $I)
+    {
+        $I->amOnPage('/');
+        $I->seeResponseCodeIs(200);
+        $I->see('Séries TV', 'h1');
+        $I->seeElement('.content .list');
+        $I->assertEquals(
+            [
+                'Friends',
+                'Futurama',
+                'Good Omens',
+                'Hunters',
+                'La caravane de l\'étrange',
+            ],
+            $I->grabMultiple('.content .list .tvshow__title')
+        );
+        // Check if strings are escaped
+        $I->seeInSource('le 31 décembre 1999 alors qu&apos;il livrait une pizza,');
+    }
 }
