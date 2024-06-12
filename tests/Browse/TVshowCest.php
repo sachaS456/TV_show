@@ -43,4 +43,10 @@ class TVshowCest
             ['id' => 'bad_id_value'],
         ];
     }
+
+    public function loadSeasonPageWithUnknownTvshowid(BrowseTester $I)
+    {
+        $I->amOnPage('/season.php?TVshowId=100000000000000000');
+        $I->seeResponseCodeIs(404);
+    }
 }
