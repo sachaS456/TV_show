@@ -34,8 +34,16 @@
       "test:codecept": [
         "php vendor/bin/php-cs-fixer fix",
         "php vendor/bin/codecept run Crud"
+      ],
+      "test:browse": [
+      "php vendor/bin/codecept clean",
+      "php vendor/bin/codecept run Browse"
+    ],
+      "test": [
+        "@fix:cs",
+        "@test:codecept",
+        "@test:browse"
       ]
-
     },
 
     "require-dev": {
