@@ -35,4 +35,12 @@ class TVshowCest
         $I->followRedirect();
         $I->seeInCurrentUrl('/index.php');
     }
+
+    protected function wrongParameterProvider(): array
+    {
+        return [
+            ['id' => ''],
+            ['id' => 'bad_id_value'],
+        ];
+    }
 }
