@@ -12,7 +12,7 @@ class Season
     private int $tvShowId;
     private string $name;
     private int $seasonNumber;
-    private int $posterId;
+    private ?int $posterId;
 
     public function getId(): int
     {
@@ -54,12 +54,12 @@ class Season
         $this->seasonNumber = $seasonNumber;
     }
 
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
         return $this->posterId;
     }
 
-    public function setPosterId(int $posterId): void
+    public function setPosterId(?int $posterId = null): void
     {
         $this->posterId = $posterId;
     }
