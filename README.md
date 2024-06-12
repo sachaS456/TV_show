@@ -5,7 +5,7 @@ Ce site permet d'afficher des séries TV avec leurs saisons et leurs épisodes.
 Il est possible d'ajouter, de supprimer ou de modifier le contenu de la base avec ce site web.
 
 ## Installation / Confifuration:
-Necessite l'installation de php et de composer pour le bon fonctionnement du site web et des tests.
+Nécessite l'installation de php et de composer pour le bon fonctionnement du site web et des tests.
 
 **Installation de composer:**
 > composer install
@@ -43,7 +43,7 @@ Cette base est requise pour effectuer les tests de Browse.
 * Effectuer l'ensemble des tests (test:codecept, test:cs)
 > composer test
 
-## Démarrage du serveur local (commande requis):
+## Démarrage du serveur local (commande requise):
 * Sur une distribution linux
 > composer start:linux
 
@@ -57,7 +57,7 @@ Cette base est requise pour effectuer les tests de Browse.
 
 ## Architecture du dépôt
 
-**Bin**: Contient les fichiers de commande qui permet d'effectuer le lancement du serveur local
-**public**: Contient les fichiers qui permette l'affichage du site web
-**src**: Contient les fichiers qui permet d'effectuer les interactions de la base.
-**tests**: Contient les fichiers de jeux de tests
+**Bin**: Contient les fichiers de commandes qui permet d'effectuer le lancement du serveur local.
+**public**: Contient les fichiers qui permettent l'affichage du site web.
+**src**: Contient les fichiers qui permettent d'effectuer les interactions de la base.
+**tests**: Contient les fichiers de jeux de tests.
