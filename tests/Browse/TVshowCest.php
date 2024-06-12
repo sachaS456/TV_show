@@ -26,4 +26,13 @@ class TVshowCest
         $I->followRedirect();
         $I->seeInCurrentUrl('/index.php');
     }
+
+    public function loadSeasonPageWithWrongParameter(BrowseTester $I)
+    {
+        $I->stopFollowingRedirects();
+        $I->amOnPage('/season.php?TVshowId=iergveiyvhbieyrbvgy');
+        $I->seeResponseCodeIs(302);
+        $I->followRedirect();
+        $I->seeInCurrentUrl('/index.php');
+    }
 }
