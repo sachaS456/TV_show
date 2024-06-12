@@ -95,7 +95,7 @@ class TVShowEditCest
      */
     public function updateTvShowWithMissingName(BrowseTester $I)
     {
-        $I->amOnPage('/admin/tvshow-form.php?TVshowId=3');
+        $I->amOnPage('/admin/tvshow-form.php?TVshowId=25');
         $I->submitForm('form', [
             'id' => '1230000',
             'name' => '',
@@ -113,5 +113,11 @@ class TVShowEditCest
         $I->stopFollowingRedirects();
         $I->amOnPage('/admin/tvshow-delete.php?TVshowId=3');
         $I->seeResponseCodeIs(302);
+    }
+
+    public function deleteTvshowWithWrongId(BrowseTester $I)
+    {
+        $I->amOnPage('/admin/tvshow-delete.php?TVshowId=2300324024');
+        $I->seeResponseCodeIs(404);
     }
 }
