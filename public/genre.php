@@ -17,11 +17,13 @@ if (!isset($_GET['genre']) || !is_numeric($_GET['genre'])) {
 
 try {
     $TVshowTab = Genre::findByGenre($genre);
+    $genreName = Genre::findById($genre)->getName();
 } catch (EntityNotFoundException) {
     http_response_code(404);
+    header('Location: ./index.php');
     exit();
 }
-$genreName = Genre::findById($genre)->getName();
+
 $indexPage = new AppWebpage("Séries TV, Genre : $genreName"); // nom à retoucher
 
 $indexPage->addMenu('Retour à l\'accueil', "location.href='/index.php'");
