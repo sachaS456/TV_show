@@ -3,6 +3,7 @@
 namespace Tests\Browse;
 
 use Tests\BrowseTester;
+
 class IndexCest
 {
     public function checkAppWebPageHtmlStructure(BrowseTester $I)

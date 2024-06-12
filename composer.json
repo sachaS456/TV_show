@@ -33,8 +33,7 @@
       "fix:cs": "php vendor/bin/php-cs-fixer fix",
       "test:codecept": [
         "php vendor/bin/php-cs-fixer fix",
-        "php vendor/bin/codecept run Crud",
-
+        "php vendor/bin/codecept run Crud"
       ],
       "test:browse": [
       "php vendor/bin/codecept clean",

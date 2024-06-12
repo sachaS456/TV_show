@@ -77,9 +77,9 @@ class TvShowCest
         $I->canSeeNumRecords(0, 'tvshow', [
             'id' => 100,
             'name' => 'Nœud Coulant',
-            'originalName' =>'Nœud Coulant',
+            'originalName' => 'Nœud Coulant',
             'homepage' => 'www.noeud.com',
-            'overview' =>'Un noeud cool!',
+            'overview' => 'Un noeud cool!',
             'posterId' => 10000
         ]);
         $I->assertSame($tvShow->getId(), 100);
