@@ -19,7 +19,7 @@ class TvShowCest
         $I->assertSame(15, $tvShow->getPosterId());
     }
 
-    public function findByIdThrowsExceptionIfArtistDoesNotExist(CrudTester $I)
+    public function findByIdThrowsExceptionIfTvshowDoesNotExist(CrudTester $I)
     {
         $I->expectThrowable(EntityNotFoundException::class, function () {
             TVshow::findById(PHP_INT_MAX);
@@ -28,12 +28,12 @@ class TvShowCest
 
     public function delete(CrudTester $I): void
     {
-        $artist = TVshow::findById(3);
-        $artist->delete();
+        $Tvshow = TVshow::findById(3);
+        $Tvshow->delete();
         $I->cantSeeInDatabase('tvshow', ['id' => 3]);
         $I->cantSeeInDatabase('tvshow', ['name' => 'Friends']);
-        $I->assertNull($artist->getId());
-        $I->assertSame('Friends', $artist->getName());
+        $I->assertNull($Tvshow->getId());
+        $I->assertSame('Friends', $Tvshow->getName());
     }
 
     public function update(CrudTester $I)
