@@ -40,4 +40,12 @@ class TVShowEditCest
         $I->amOnPage('/admin/tvshow-form.php?TVshowId='.PHP_INT_MAX);
         $I->seeResponseCodeIs(404);
     }
+
+
+    public function loadTVshowFormWithWrongParameter(BrowseTester $I)
+    {
+        $I->amOnPage('/admin/tvshow-form.php?TVshowId=');
+        $I->seeResponseCodeIs(400);
+    }
+
 }
