@@ -10,7 +10,7 @@ class TVshowCest
 {
     public function checkAppWebPageHtmlStructure(BrowseTester $I)
     {
-        $I->amOnPage('/season.php?TVshowId=3');
+        $I->amOnPage('/season.php?TVshowId=57');
         $I->seeResponseCodeIs(200);
         $I->seeElement('.header');
         $I->seeElement('.header h1');
