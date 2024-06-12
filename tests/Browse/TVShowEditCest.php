@@ -64,5 +64,12 @@ class TVShowEditCest
         $I->seeResponseCodeIs(302);
     }
 
+    public function insertTvshowWithMissingName(BrowseTester $I)
+    {
+        $I->amOnPage('/admin/tvshow-form.php');
+        $I->submitForm('form', ['name' => '']);
+        $I->seeInCurrentUrl('/admin/tvshow-save.php');
+        $I->seeResponseCodeIs(400);
+    }
 
 }
