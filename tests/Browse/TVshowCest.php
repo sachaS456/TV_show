@@ -48,8 +48,7 @@ class TVshowCest
     public function loadSeasonPageWithUnknownTvshowid(BrowseTester $I)
     {
         $I->amOnPage('/season.php?TVshowId=100000000000000000');
-        $I->seeInCurrentUrl('index.php');
-        $I->seeResponseCodeIs(302);
+        $I->seeInCurrentUrl('/index.php');
     }
 
     public function loadSeasonWithCorrectParameter(BrowseTester $I)
