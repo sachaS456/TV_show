@@ -34,4 +34,10 @@ class TVShowEditCest
             'overview' => 'Les péripéties de 6 jeunes newyorkais liés par une profonde amitié. Entre amour, travail, famille, ils partagent leurs bonheurs et leurs soucis au Central Perk, leur café favori...'
         ]);
     }
+
+    public function loadTVshowFormWithUnknownTVshowId(BrowseTester $I)
+    {
+        $I->amOnPage('/admin/tvshow-form.php?TVshowId='.PHP_INT_MAX);
+        $I->seeResponseCodeIs(404);
+    }
 }
