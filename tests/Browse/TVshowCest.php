@@ -17,4 +17,13 @@ class TVshowCest
         $I->seeElement('.content');
         $I->seeElement('.footer');
     }
+
+    public function loadTvshowPageWithoutParameter(BrowseTester $I)
+    {
+        $I->stopFollowingRedirects();
+        $I->amOnPage('/season.php');
+        $I->seeResponseCodeIsRedirection();
+        $I->followRedirect();
+        $I->seeInCurrentUrl('/index.php');
+    }
 }
